@@ -1,0 +1,3 @@
+FROME golang:1.6.3
+
+VOLUME [$GOPATH]
