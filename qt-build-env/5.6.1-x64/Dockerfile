@@ -1,1 +1,1 @@
-FROM icsinc:qt5.6.1-x64
+FROM icsinc/qt5.6.0-x64:latest
