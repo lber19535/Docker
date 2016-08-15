@@ -1,6 +1,6 @@
 FROM icsinc/qt5.6.1-x64:latest
 
-RUN apt-get update -qq && apt-get install -qq -y \
+RUN apt-get update && apt-get install -y \
     build-essential=11.7 \
     curl=7.38.0-4+deb8u3 \
     make=4.0-8.1 \
