@@ -1,13 +1,23 @@
-FROM icsinc/qt5.6.1-x64:latest
+FROM ubuntu:16.04
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN apt-get update && apt-get install -y software-properties-common python-software-properties && add-apt-repository ppa:beineri/opt-qt561-trusty
+RUN apt-get update && apt-get install -y git qt56-meta-full build-essential mesa-common-dev libglu1-mesa-dev && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y \
-    build-essential=11.7 \
-    curl=7.38.0-4+deb8u3 \
-    make=4.0-8.1 \
-    poppler-utils=0.26.5-2+deb8u1
+    build-essential \
+    curl \
+    make \
+    poppler-utils
 
 # Install cmake
 RUN curl -sSL https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.tar.gz | tar -xzC /opt
 RUN ln -s /opt/cmake-3.4.0-Linux-x86_64/bin/cmake /usr/bin/cmake
+
+ENV QT_BASE_DIR=/opt/qt56
+ENV QTDIR=$QT_BASE_DIR
+ENV PATH=$QT_BASE_DIR/bin:$PATH
+ENV LD_LIBRARY_PATH=$QT_BASE_DIR/lib/x86_64-linux-gnu:$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
+ENV PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 
 VOLUME ["/home/workspace"]
