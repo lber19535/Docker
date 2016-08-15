@@ -8,7 +8,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     make \
-    poppler-utils
+    poppler-utils \
+    vlc \
+    libvlc-dev \
+    libvlccore-dev
 
 # Install cmake
 RUN curl -sSL https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.tar.gz | tar -xzC /opt
