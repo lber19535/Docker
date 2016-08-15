@@ -23,7 +23,7 @@ ENV PATH=$QT_BASE_DIR/bin:$PATH
 ENV LD_LIBRARY_PATH=$QT_BASE_DIR/lib/x86_64-linux-gnu:$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
 ENV PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 
-// install vlc-qt
+# Install vlc-qt
 RUN git clone 1.1.0 https://github.com/vlc-qt/vlc-qt.git
 RUN mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug && make -j8 && make install
 
