@@ -26,6 +26,6 @@ ENV PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 # Install vlc-qt
 RUN mkdir -p /usr/src/qt-vlc
 RUN cd /usr/src/qt-vlc && git clone --branch 1.1.0 https://github.com/vlc-qt/vlc-qt.git
-RUN /usr/src/qt-vlc && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug && make -j8 && make install
+RUN cd /usr/src/qt-vlc && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug && make -j8 && make install
 
 VOLUME ["/home/workspace"]
