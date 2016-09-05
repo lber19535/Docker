@@ -7,7 +7,7 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 # Install Deps
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y curl ant gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386
+    apt-get install -y vim curl ant gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386
 
 # Install Android SDK
 RUN cd /opt && wget ${ANDROID_SDK_URL} && tar xzvf ${ANDROID_SDK_FILE} && rm -f ${ANDROID_SDK_FILE} && chown -R root.root ${ANDROID_HOME}
