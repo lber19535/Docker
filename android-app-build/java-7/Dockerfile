@@ -11,18 +11,15 @@ RUN dpkg --add-architecture i386 && \
 
 # Install Android SDK
 RUN cd /opt && wget ${ANDROID_SDK_URL} && tar xzvf ${ANDROID_SDK_FILE} && rm -f ${ANDROID_SDK_FILE} && chown -R root.root ${ANDROID_HOME}
-ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Install sdk
 RUN echo y | android update sdk -a -u -t platform-tools,tools,build-tools-21,build-tools-21.0.1,build-tools-21.0.2,build-tools-21.1,build-tools-21.1.1,build-tools-21.1.2,build-tools-22,build-tools-22.0.1,build-tools-23.0.0,build-tools-23.0.3,build-tools-24.0.2,build-tools-24.0.1,build-tools-24,android-22,android-23,android-24,addon-google_apis_x86-google-21,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services
 
-RUN which adb
-RUN which android
-
 # Install repo
 RUN cd /opt && mkdir bin && cd bin && wget https://raw.githubusercontent.com/android/tools_repo/master/repo repo && chmod a+x repo
 ENV OPT_BIN /opt/bin
-ENV PATH ${PATH}:${OPT_BIN}
+ENV PATH $PATH:$OPT_BIN
 
 
 # Cleaning
