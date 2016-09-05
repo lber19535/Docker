@@ -17,7 +17,7 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 RUN echo y | android update sdk -a -u -t platform-tools,tools,build-tools-21,build-tools-21.0.1,build-tools-21.0.2,build-tools-21.1,build-tools-21.1.1,build-tools-21.1.2,build-tools-22,build-tools-22.0.1,build-tools-23.0.0,build-tools-23.0.3,build-tools-24.0.2,build-tools-24.0.1,build-tools-24,android-22,android-23,android-24,addon-google_apis_x86-google-21,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services
 
 # Install repo
-RUN cd /opt && mkdir bin && cd bin && wget https://raw.githubusercontent.com/android/tools_repo/master/repo repo && chmod a+x repo
+RUN mkdir -p /opt/bin && cd /opt/bin && wget https://raw.githubusercontent.com/android/tools_repo/master/repo && chmod a+x repo
 ENV OPT_BIN /opt/bin
 ENV PATH $PATH:$OPT_BIN
 
