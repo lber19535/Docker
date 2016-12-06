@@ -1,0 +1,10 @@
+version: '2'
+services: 
+  react-web:
+    image: node:latest
+    ports: 
+      - "30001:3000"
+    volumes: 
+      - .:/root/react
+    command: /bin/sh -c "while true; do echo keep running; sleep 1000; done"
+    working_dir: /root/react
